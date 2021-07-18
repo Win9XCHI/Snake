@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include "Result.h"
 #include "Game.h"
 

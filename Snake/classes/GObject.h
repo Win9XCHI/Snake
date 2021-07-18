@@ -1,6 +1,6 @@
 #pragma once
 #include <windows.h>
-#include "../structures.h"
+#include "point.h"
 
 class GObject {
 protected:

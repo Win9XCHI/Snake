@@ -8,7 +8,6 @@
 #include "GameWindow.h"
 #include "Fruit.h"
 #include "Snake.h"
-#include "Result.h"
 
 class Game {
 	unsigned int count;
