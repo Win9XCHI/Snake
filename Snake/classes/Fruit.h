@@ -1,16 +1,14 @@
 #pragma once
-#include <windows.h>
-#include "../structures.h"
+#include "GObject.h"
 #define SIZE 5
 
-class Fruit {
-	point place;
+class Fruit : GObject {
 
 public:
 	Fruit();
 	Fruit(int x, int y);
 	~Fruit();
-	void Set(HDC &hDC);
-	bool Collision(point object);
+	void Set(HDC &hDC) override;
+	bool Collision(point object) override;
 };
 

@@ -4,8 +4,7 @@ Fruit::Fruit() {
 
 }
 
-Fruit::Fruit(int x, int y) : place({x, y}) {
-
+Fruit::Fruit(int x, int y) : GObject(x, y) {
 }
 
 Fruit::~Fruit() {
