@@ -12,23 +12,29 @@ Menu::~Menu() {
  * Input: -
  * Output: -	 */
 void Menu::StartMenu() {
-    Game object_game;
+    char repeat = 'y';
 
-    std::string name;
-    std::cout << "Enter name: ";
-    std::cin >> name;
+    while (repeat == 'y') {
+        Game object_game;
 
-    try {
-        unsigned int result = object_game.StartGame(name);
-        object_result.Add(name, result);
-        std::cout << std::endl << "Your result - " << result << std::endl;
+        std::string name;
+        std::cout << "Enter name: ";
+        std::cin >> name;
+
+        try {
+            unsigned int result = object_game.StartGame(name);
+            object_result.Add(name, result);
+            std::cout << std::endl << "Your result - " << result << std::endl;
+            std::cout << "Repeat? (y/n) ";
+            std::cin >> repeat;
+        }
+        catch (KernelObjectException object) {
+            system("cls");
+            std::cout << std::endl << "\tError game: " << object.what() << std::endl;
+            repeat = 'n';
+            Sleep(10000);
+        }
     }
-    catch (KernelObjectException object) {
-        system("cls");
-        std::cout << std::endl << "\tError game: " << object.what() << std::endl;
-    }
-
-    Sleep(10000);
 }
 
 /* Show result
