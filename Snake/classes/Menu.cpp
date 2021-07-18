@@ -14,8 +14,11 @@ void Menu::StartMenu() {
     std::string name;
     std::cout << "Enter name: ";
     std::cin >> name;
-    object_result.Add(name, object_game.StartGame(name));
-    std::cout << std::endl << "Finish" << std::endl;
+    unsigned int result = object_game.StartGame(name);
+    object_result.Add(name, result);
+    std::cout << std::endl << "\tFinish" << std::endl;
+    std::cout << std::endl << "Your result - " << result << std::endl;
+    Sleep(10000);
 }
 
 void Menu::ShowResult() {

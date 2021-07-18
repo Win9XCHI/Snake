@@ -18,7 +18,7 @@ GameWindow::~GameWindow() {
 
 }
 
-void GameWindow::SetWindow(HDC& hDC) {
+void GameWindow::Set(HDC& hDC) {
 	for (unsigned int i = 0; i < 4; i++) {
 		MoveToEx(hDC, window[i].x, window[i].y, NULL); //Set point
 

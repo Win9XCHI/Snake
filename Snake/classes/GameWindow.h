@@ -1,8 +1,8 @@
 #pragma once
 #include <windows.h>
 #include "../structures.h"
-#define MIN 10
-#define MAX 1100
+#define MIN 20
+#define MAX 510
 
 class GameWindow {
 	point window[4];
@@ -10,7 +10,7 @@ class GameWindow {
 public:
 	GameWindow();
 	~GameWindow();
-	void SetWindow(HDC &hDC);
+	void Set(HDC &hDC);
 	bool Collision(point object);
 };
 
