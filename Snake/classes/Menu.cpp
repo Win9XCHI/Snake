@@ -8,19 +8,32 @@ Menu::~Menu() {
 
 }
 
+/* Game
+ * Input: -
+ * Output: -	 */
 void Menu::StartMenu() {
     Game object_game;
 
     std::string name;
     std::cout << "Enter name: ";
     std::cin >> name;
-    unsigned int result = object_game.StartGame(name);
-    object_result.Add(name, result);
-    std::cout << std::endl << "\tFinish" << std::endl;
-    std::cout << std::endl << "Your result - " << result << std::endl;
+
+    try {
+        unsigned int result = object_game.StartGame(name);
+        object_result.Add(name, result);
+        std::cout << std::endl << "Your result - " << result << std::endl;
+    }
+    catch (KernelObjectException object) {
+        system("cls");
+        std::cout << std::endl << "\tError game: " << object.what() << std::endl;
+    }
+
     Sleep(10000);
 }
 
+/* Show result
+ * Input: -
+ * Output: -	 */
 void Menu::ShowResult() {
     std::string str;
     std::cout << "Enter name or empty line: ";
@@ -34,6 +47,9 @@ void Menu::ShowResult() {
     }
 }
 
+/* Main menu
+ * Input: -
+ * Output: -	 */
 void Menu::MainMenu() {
     int exit(0);
 

@@ -2,11 +2,11 @@
 #include <windows.h>
 
 namespace CONSTANTS {
-	const unsigned int SIZE_FRUIT = 5;
-	const COLORREF RED = RGB(255, 0, 0);
-	const unsigned int MIN_SIZE = 20;
-	const unsigned int MAX_SIZE = 510;
-	const unsigned int DEFAULT_X = 400;
-	const unsigned int DEFAULT_Y = 250;
-	const unsigned int LENGTH_ITEM = 5;
+	const unsigned int SIZE_FRUIT = 5;		//for Fruit class
+	const COLORREF RED = RGB(255, 0, 0);	//for Fruit class and FillRect function
+	const unsigned int MIN_SIZE = 20;		//for GameWindow class
+	const unsigned int MAX_SIZE = 510;		//for GameWindow class
+	const unsigned int DEFAULT_X = 400;		//for Snake class
+	const unsigned int DEFAULT_Y = 250;		//for Snake class
+	const unsigned int LENGTH_ITEM = 5;		//for Snake class
 }

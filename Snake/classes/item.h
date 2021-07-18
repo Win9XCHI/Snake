@@ -1,16 +1,21 @@
 #pragma once
 #include "point.h"
 
+//line
 class item {
 
 public:
-	point head;
-	point tail;
+	point head;	//coordinate head
+	point tail; //coordinate tail
 
 	item();
 	item(const item& other);
 	~item();
-	void reverse();
 	item& operator=(const item& other);
+
+	/* Swap head and tail
+	 * Input: -
+	 * Output: -	 */
+	void reverse();
 };
 

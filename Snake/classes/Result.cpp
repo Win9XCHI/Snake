@@ -8,14 +8,23 @@ Result::~Result() {
 
 }
 
+/* Add result
+ * Input: name and count
+ * Output: -	 */
 void Result::Add(std::string name, unsigned int count) {
 	results.insert({name, count});
 }
 
+/* Create string for output
+ * Input: name and count
+ * Output: string for output	 */
 std::string Result::CreateString(std::string name, unsigned int count) {
 	return name + ":" + std::to_string(count) + "\n";
 }
 
+/* Get specific user results
+ * Input: name
+ * Output: string for output	 */
 std::string Result::GetResults(std::string name) {
 	std::string str = "";
 
@@ -28,6 +37,9 @@ std::string Result::GetResults(std::string name) {
 	return str;
 }
 
+/* Get all results
+ * Input: -
+ * Output: string for output	 */
 std::string Result::GetResults() {
 	std::string str = "";
 

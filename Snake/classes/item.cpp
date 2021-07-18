@@ -13,6 +13,9 @@ item::~item() {
 
 }
 
+/* Swap head and tail
+ * Input: -
+ * Output: -	 */
 void item::reverse() {
 	point buff = head;
 	head = tail;

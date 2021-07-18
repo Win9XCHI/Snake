@@ -12,21 +12,28 @@ Snake::~Snake() {
 
 }
 
+/* Set figure on scene
+ * Input: context for consol`s descriptor
+ * Output: -	 */
 void Snake::Set(HDC& hDC) {
 
-	for (auto i : body) {
-		MoveToEx(hDC, i.head.x, i.head.y, NULL); //Set point
-		LineTo(hDC, i.tail.x, i.tail.y);	//Set line
+	for (auto &i : body) {
+		MoveToEx(hDC, i.head.x, i.head.y, NULL);	//Set start coordinates
+		LineTo(hDC, i.tail.x, i.tail.y);			//Set line
 	}
 }
 
+/* Check collision for figure
+ * Input: object point
+ * Output: point belongs to figure or not	 */
 bool Snake::Collision(point object) {
 	int oneX, twoX, oneY, twoY, i(0);
 
-	for (auto item : body) {
+	for (auto &item : body) {					//loop for fragments
 
-		if (i != 0) {
-			if (item.head.x > item.tail.x) {
+		if (i != 0) {							//exclude head
+			//Filling variables depending on orientation of fragments
+			if (item.head.x > item.tail.x) {	//x
 				oneX = item.head.x;
 				twoX = item.tail.x;
 			}
@@ -35,7 +42,7 @@ bool Snake::Collision(point object) {
 				oneX = item.tail.x;
 			}
 
-			if (item.head.y > item.tail.y) {
+			if (item.head.y > item.tail.y) {	//y
 				oneY = item.head.y;
 				twoY = item.tail.y;
 			}
@@ -54,6 +61,9 @@ bool Snake::Collision(point object) {
 	return false;
 }
 
+/* Set new direction of movement
+ * Input: direction (0 - left, 1 - top, 2 - right, 3 - bottom)
+ * Output: -	 */
 void Snake::SetVector(unsigned int direction) {
 
 	if (direction > 3 || direction == vector || (direction == 0 && vector == 2) || (direction == 2 && vector == 0) || (direction == 1 && vector == 3) || (direction == 3 && vector == 1)) {
@@ -63,6 +73,9 @@ void Snake::SetVector(unsigned int direction) {
 	vector = direction;
 }
 
+/* Driving sides
+ * Input: -
+ * Output: -	 */
 void Snake::OnLeft() {
 	head.head.x -= CONSTANTS::LENGTH_ITEM;
 	head.head.y = head.tail.y;
@@ -83,7 +96,9 @@ void Snake::OnBottom() {
 	head.head.x = head.tail.x;
 }
 
-
+/* Move snake
+ * Input: delete tail item or not
+ * Output: -	 */
 void Snake::Move(bool delTail) {
 	head.reverse();
 
@@ -113,11 +128,17 @@ void Snake::Move(bool delTail) {
 	}
 }
 
+/* Move snake
+ * Input: -
+ * Output: point of head	 */
 point Snake::Move() {
 	Move(true);
 	return head.head;
 }
 
+/* Add item for snake`s body
+ * Input: -
+ * Output: point of head	 */
 point Snake::Add() {
 	Move(false);
 	length++;

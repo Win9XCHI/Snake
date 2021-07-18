@@ -1,6 +1,7 @@
 #pragma once
 #include <initializer_list>
 
+//coordinates (x, y)
 class point {
 
 public:

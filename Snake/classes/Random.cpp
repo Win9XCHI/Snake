@@ -1,22 +1,19 @@
 #include "Random.h"
 
-void Random::initGenerator()
-{
-    // Создаём псевдо-устройство для получения случайного зерна.
-    std::random_device device;
-    // Получаем случайное зерно последовательности
-    generator.engine.seed(device());
+/* Init generator
+ * Input: -
+ * Output: -	 */
+void Random::initGenerator() {
+    std::random_device device;          //Create a pseudo random grain device
+    generator.engine.seed(device());    //Get a random grain of sequence
 }
 
-// Генерирует целое число в диапазоне [minValue, maxValue)
+/* Generate random number
+ * Input: min and max diapason
+ * Output: random numbers	 */
 unsigned int Random::random(unsigned minValue, unsigned maxValue) {
-
-    // Создаём распределение
-    std::uniform_int_distribution<unsigned> distribution(minValue, maxValue);
-
-    // Вычисляем псевдослучайное число: вызовем распределение как функцию,
-    //  передав генератор произвольных целых чисел как аргумент.
-    return distribution(generator.engine);
+    std::uniform_int_distribution<unsigned> distribution(minValue, maxValue);   //Create a distribution
+    return distribution(generator.engine);                                      //Calculate a pseudo-random number
 }
 
 Random::Random() { 
