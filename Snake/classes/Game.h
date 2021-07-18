@@ -14,6 +14,7 @@
 //class for game logic
 class Game {
 	unsigned int count;
+	unsigned int speed;
 	HWND hWnd;				//descriptor consol window
 	HDC hDC;				//context for descriptor
 	DWORD thread_id;

@@ -15,7 +15,7 @@ DWORD WINAPI Listener(PVOID pvParam) {
     return 0;
 }
 
-Game::Game() : count(0) {
+Game::Game() : count(0), speed(1001) {
     InitConsole();  
 }
 
@@ -106,6 +106,10 @@ void Game::CollisionHandling(Snake& object_snake, GameWindow& object_window, std
             fruits.erase(fruits.begin() + i);
             NewFruit(fruits);
             count++;
+
+            if (speed > 10) {
+                speed -= 10;
+            }
         }
     }
 }
@@ -144,7 +148,9 @@ void Game::GameProcess() {
         }
 
         CollisionHandling(object_snake, object_window, fruits);
-        Draw(object_snake, object_window, fruits);        
+        Draw(object_snake, object_window, fruits);   
+
+        Sleep(speed);
     }
 }
 
