@@ -1,17 +1,17 @@
 #include "GameWindow.h"
 
 GameWindow::GameWindow() {
-	window[0].x = MIN;
-	window[0].y = MIN;
+	window[0].x = CONSTANTS::MIN_SIZE;
+	window[0].y = CONSTANTS::MIN_SIZE;
 
-	window[1].x = MAX;
-	window[1].y = MIN;
+	window[1].x = CONSTANTS::MAX_SIZE;
+	window[1].y = CONSTANTS::MIN_SIZE;
 
-	window[2].x = MAX;
-	window[2].y = MAX;
+	window[2].x = CONSTANTS::MAX_SIZE;
+	window[2].y = CONSTANTS::MAX_SIZE;
 
-	window[3].x = MIN;
-	window[3].y = MAX;
+	window[3].x = CONSTANTS::MIN_SIZE;
+	window[3].y = CONSTANTS::MAX_SIZE;
 }
 
 GameWindow::~GameWindow() {
@@ -33,7 +33,7 @@ void GameWindow::Set(HDC& hDC) {
 
 bool GameWindow::Collision(point object) {
 
-	if (object.x <= MIN || object.x >= MAX || object.y <= MIN || object.y >= MAX) {
+	if (object.x <= CONSTANTS::MIN_SIZE || object.x >= CONSTANTS::MAX_SIZE || object.y <= CONSTANTS::MIN_SIZE || object.y >= CONSTANTS::MAX_SIZE) {
 		return true;
 	}
 

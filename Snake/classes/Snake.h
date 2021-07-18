@@ -2,9 +2,6 @@
 #include <list>
 #include "GObject.h"
 #include "item.h"
-#define DEFAULT_X 400
-#define DEFAULT_Y 250
-#define LENGTH_ITEM 5
 
 class Snake : GObject {
 	std::list<item> body;

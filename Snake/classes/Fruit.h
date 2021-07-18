@@ -1,6 +1,5 @@
 #pragma once
 #include "GObject.h"
-#define SIZE 5
 
 class Fruit : GObject {
 

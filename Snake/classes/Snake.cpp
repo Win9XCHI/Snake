@@ -1,10 +1,10 @@
 #include "Snake.h"
 
-Snake::Snake() : length(1), vector(0)/*, width(5), thickness(5)*/ {
-	head.head.x = DEFAULT_X;
-	head.head.y = DEFAULT_Y;
-	head.tail.x = DEFAULT_X + LENGTH_ITEM;
-	head.tail.y = DEFAULT_Y;
+Snake::Snake() : length(1), vector(0) {
+	head.head.x = CONSTANTS::DEFAULT_X;
+	head.head.y = CONSTANTS::DEFAULT_Y;
+	head.tail.x = CONSTANTS::DEFAULT_X + CONSTANTS::LENGTH_ITEM;
+	head.tail.y = CONSTANTS::DEFAULT_Y;
 	body.push_front(head);
 }
 
@@ -64,22 +64,22 @@ void Snake::SetVector(unsigned int direction) {
 }
 
 void Snake::OnLeft() {
-	head.head.x -= LENGTH_ITEM;
+	head.head.x -= CONSTANTS::LENGTH_ITEM;
 	head.head.y = head.tail.y;
 }
 
 void Snake::OnTop() {
-	head.head.y -= LENGTH_ITEM;
+	head.head.y -= CONSTANTS::LENGTH_ITEM;
 	head.head.x = head.tail.x;
 }
 
 void Snake::OnRight() {
-	head.head.x += LENGTH_ITEM;
+	head.head.x += CONSTANTS::LENGTH_ITEM;
 	head.head.y = head.tail.y;
 }
 
 void Snake::OnBottom() {
-	head.head.y += LENGTH_ITEM;
+	head.head.y += CONSTANTS::LENGTH_ITEM;
 	head.head.x = head.tail.x;
 }
 
