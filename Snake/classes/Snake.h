@@ -51,5 +51,15 @@ public:
 	 * Input: -
 	 * Output: point of head	 */
 	point Add();
+
+	/* Get coordinates sneke`s head
+	 * Input: -
+	 * Output: coordinates	 */
+	point GetHead();
+
+	/* Get vector
+	 * Input: -
+	 * Output: vector(0 - left, 1 - top, 2 - right, 3 - bottom)	 */
+	unsigned int GetVector();
 };
 

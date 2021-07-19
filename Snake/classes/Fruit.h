@@ -17,5 +17,10 @@ public:
 	 * Input: object point
 	 * Output: point belongs to figure or not	 */
 	bool Collision(point object) override;
+
+	/* Get point
+	 * Input: -
+	 * Output: point	 */
+	point GetPlace();
 };
 

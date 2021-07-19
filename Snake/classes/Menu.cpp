@@ -13,13 +13,13 @@ Menu::~Menu() {
  * Output: -	 */
 void Menu::StartMenu() {
     char repeat = 'y';
+    std::string name;
+
+    std::cout << "Enter name: ";
+    std::cin >> name;
 
     while (repeat == 'y') {
         Game object_game;
-
-        std::string name;
-        std::cout << "Enter name: ";
-        std::cin >> name;
 
         try {
             unsigned int result = object_game.StartGame(name);
@@ -35,6 +35,26 @@ void Menu::StartMenu() {
             Sleep(10000);
         }
     }
+}
+
+/* Show demo game
+ * Input: -
+ * Output: -	 */
+void Menu::ShowDemo() {
+    Game object_game;
+
+    try {
+       object_game.DemoGame();
+    }
+    catch (KernelObjectException object) {
+        system("cls");
+        std::cout << std::endl << "\tError game: " << object.what() << std::endl;
+    }
+    catch (GameProcessException object) {
+        system("cls");
+        std::cout << std::endl << "\tFinish: " << object.what() << std::endl;
+    }
+    Sleep(10000);
 }
 
 /* Show result
@@ -79,6 +99,7 @@ void Menu::MainMenu() {
             break;
         }
         case 3: {
+            ShowDemo();
             break;
         }
         }

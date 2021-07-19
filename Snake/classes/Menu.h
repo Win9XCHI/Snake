@@ -23,5 +23,10 @@ public:
 	 * Input: -
 	 * Output: -	 */
 	void ShowResult();
+
+	/* Show demo game
+	 * Input: -
+	 * Output: -	 */
+	void ShowDemo();
 };
 

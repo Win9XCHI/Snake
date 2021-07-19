@@ -34,3 +34,10 @@ bool Fruit::Collision(point object) {
 
 	return false;
 }
+
+/* Get point
+ * Input: -
+ * Output: point	 */
+point Fruit::GetPlace() {
+	return place;
+}

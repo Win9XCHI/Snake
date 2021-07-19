@@ -52,6 +52,26 @@ class Game {
 	 * Output: modified snake, modified window, modified fruits */
 	void Draw(Snake& object_snake, GameWindow& object_window, std::vector<Fruit>& fruits);
 
+	/* Loop`s body for demo mode
+	 * Input: snake, fruits
+	 * Output: snake */
+	void BodyForDemo(Snake& object_snake, const std::vector<Fruit> fruits);
+
+	/* Loop`s body for game mode
+	 * Input: snake
+	 * Output: snake */
+	void BodyForGame(Snake& object_snake);
+
+	/* AI for snake on X coordinate
+	 * Input: snake, fruit
+	 * Output: snake */
+	bool OnX(Snake& object_snake, Fruit object_fruit);
+
+	/* AI for snake on Y coordinate
+	 * Input: snake, fruit
+	 * Output: snake */
+	bool OnY(Snake& object_snake, Fruit object_fruit);
+
 public:
 	Game();
 	~Game();
@@ -60,5 +80,10 @@ public:
 	 * Input: user`s name
 	 * Output: count */
 	unsigned int StartGame(std::string name);
+
+	/* Demo
+	 * Input: -
+	 * Output: - */
+	void DemoGame();
 };
 

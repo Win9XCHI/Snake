@@ -144,3 +144,17 @@ point Snake::Add() {
 	length++;
 	return head.head;
 }
+
+/* Get coordinates sneke`s head
+ * Input: -
+ * Output: coordinates	 */
+point Snake::GetHead() {
+	return head.head;
+}
+
+/* Get vector
+ * Input: -
+ * Output: vector(0 - left, 1 - top, 2 - right, 3 - bottom)	 */
+unsigned int Snake::GetVector() {
+	return vector;
+}
