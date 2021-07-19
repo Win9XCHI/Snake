@@ -38,9 +38,9 @@ class Game {
 	void Events(WPARAM param, Snake &object_snake);
 
 	/* Loop with game logic
-	 * Input: -
+	 * Input: demo mode or not (true - demo, false - game)
 	 * Output: - */
-	void GameProcess();
+	void GameProcess(bool demo);
 
 	/* Collision handler
 	 * Input: snake, window, fruits
@@ -55,12 +55,12 @@ class Game {
 	/* Loop`s body for demo mode
 	 * Input: snake, fruits
 	 * Output: snake */
-	void BodyForDemo(Snake& object_snake, const std::vector<Fruit> fruits);
+	void Body(Snake& object_snake, const std::vector<Fruit> fruits);
 
 	/* Loop`s body for game mode
 	 * Input: snake
 	 * Output: snake */
-	void BodyForGame(Snake& object_snake);
+	void Body(Snake& object_snake);
 
 	/* AI for snake on X coordinate
 	 * Input: snake, fruit
@@ -77,13 +77,8 @@ public:
 	~Game();
 
 	/* Start game
-	 * Input: user`s name
+	 * Input: user`s name, demo mode or not (true - demo, false - game)
 	 * Output: count */
-	unsigned int StartGame(std::string name);
-
-	/* Demo
-	 * Input: -
-	 * Output: - */
-	void DemoGame();
+	unsigned int StartGame(std::string name, bool demo);
 };
 

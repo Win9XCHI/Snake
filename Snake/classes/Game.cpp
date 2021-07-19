@@ -128,9 +128,9 @@ void Game::Draw(Snake& object_snake, GameWindow& object_window, std::vector<Frui
 }
 
 /* Loop with game logic
- * Input: -
+ * Input: demo mode or not (true - demo, false - game)
  * Output: - */
-void Game::GameProcess() {
+void Game::GameProcess(bool demo) {
     GameWindow object_window;
     Snake object_snake;
     std::vector<Fruit> fruits;
@@ -142,7 +142,7 @@ void Game::GameProcess() {
     while (true) {
         system("cls");
 
-        BodyForGame(object_snake);
+        demo ? Body(object_snake, fruits) : Body(object_snake);
 
         CollisionHandling(object_snake, object_window, fruits);
         Draw(object_snake, object_window, fruits);   
@@ -152,14 +152,14 @@ void Game::GameProcess() {
 }
 
 /* Start game
- * Input: user`s name
+ * Input: user`s name, demo mode or not (true - demo, false - game)
  * Output: count */
-unsigned int Game::StartGame(std::string name) {
+unsigned int Game::StartGame(std::string name, bool demo) {
     
     try {
         InitEvent();
         InitThread();
-        GameProcess();
+        GameProcess(demo);
     }
     catch (GameProcessException object) {
         system("cls");
@@ -170,36 +170,10 @@ unsigned int Game::StartGame(std::string name) {
     return 0;
 }
 
-/* Demo
- * Input: -
- * Output: - */
-void Game::DemoGame() {
-    GameWindow object_window;
-    Snake object_snake;
-    std::vector<Fruit> fruits;
-    InitEvent();
-    InitThread();
-
-    for (int i = 0; i < 5; i++) {
-        NewFruit(fruits);
-    }
-
-    while (true) {
-        system("cls");
-
-        BodyForDemo(object_snake, fruits);
-
-        CollisionHandling(object_snake, object_window, fruits);
-        Draw(object_snake, object_window, fruits);
-
-        Sleep(speed);
-    }
-}
-
 /* Loop`s body for demo mode
  * Input: snake
  * Output: snake */
-void Game::BodyForDemo(Snake& object_snake, const std::vector<Fruit> fruits) {
+void Game::Body(Snake& object_snake, const std::vector<Fruit> fruits) {
     BOOL bRet;
     MSG msg;
 
@@ -223,7 +197,7 @@ void Game::BodyForDemo(Snake& object_snake, const std::vector<Fruit> fruits) {
 /* Loop`s body for game mode
  * Input: snake
  * Output: snake */
-void Game::BodyForGame(Snake& object_snake) {
+void Game::Body(Snake& object_snake) {
     BOOL bRet;
     MSG msg;
 

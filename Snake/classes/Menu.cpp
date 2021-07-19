@@ -22,7 +22,7 @@ void Menu::StartMenu() {
         Game object_game;
 
         try {
-            unsigned int result = object_game.StartGame(name);
+            unsigned int result = object_game.StartGame(name, false);
             object_result.Add(name, result);
             std::cout << std::endl << "Your result - " << result << std::endl;
             std::cout << "Repeat? (y/n) ";
@@ -44,15 +44,11 @@ void Menu::ShowDemo() {
     Game object_game;
 
     try {
-       object_game.DemoGame();
+        object_game.StartGame("Demo", true);
     }
     catch (KernelObjectException object) {
         system("cls");
         std::cout << std::endl << "\tError game: " << object.what() << std::endl;
-    }
-    catch (GameProcessException object) {
-        system("cls");
-        std::cout << std::endl << "\tFinish: " << object.what() << std::endl;
     }
     Sleep(10000);
 }
