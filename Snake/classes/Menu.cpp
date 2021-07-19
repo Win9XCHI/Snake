@@ -62,15 +62,16 @@ void Menu::ShowDemo() {
  * Output: -	 */
 void Menu::ShowResult() {
     std::string str;
-    std::cout << "Enter name or empty line: ";
+    std::cout << "Enter name or (all): ";
     std::cin >> str;
 
-    if (str == "") {
+    if (str == "all") {
         std::cout << object_result.GetResults() << std::endl;
     }
     else {
         std::cout << object_result.GetResults(str) << std::endl;
     }
+    Sleep(10000);
 }
 
 /* Main menu
